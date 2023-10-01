@@ -54,6 +54,7 @@ export default {
         .then((response) => {
           // Handle success, e.g., show a success message
           console.log("User details updated successfully");
+          this.$router.push({ path: "/" });
         })
         .catch((error) => {
           // Handle error, e.g., show an error message
