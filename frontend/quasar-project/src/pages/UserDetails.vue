@@ -36,15 +36,16 @@ export default {
   methods: {
     fetchUserDetails() {
       const userId = this.$route.params.userId;
-
-      axios
-        .get(API_BASE_URL + `users/${userId}`)
-        .then((response) => {
-          this.user = response.data;
-        })
-        .catch((error) => {
-          console.error("Error fetching user details: " + error);
-        });
+      if (userId !== undefined) {
+        axios
+          .get(API_BASE_URL + `users/${userId}`)
+          .then((response) => {
+            this.user = response.data;
+          })
+          .catch((error) => {
+            console.error("Error fetching user details: " + error);
+          });
+      }
     },
     updateUser() {
       const userId = this.$route.params.userId;
@@ -54,7 +55,7 @@ export default {
         .then((response) => {
           // Handle success, e.g., show a success message
           console.log("User details updated successfully");
-          this.$router.push({ path: "/" });
+          this.$router.replace({ path: "/" });
         })
         .catch((error) => {
           // Handle error, e.g., show an error message

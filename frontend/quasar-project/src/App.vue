@@ -38,7 +38,18 @@ export default {
         name: "",
         email: "",
       },
+      componentKey: 0,
     };
+  },
+  watch: {
+    $route(to, from) {
+      if (from.path !== "/" && to.path === "/") {
+        console.log(from.path);
+        // Trigger a refresh
+        console.log("we here");
+        this.$router.go();
+      }
+    },
   },
   methods: {
     addUser() {
