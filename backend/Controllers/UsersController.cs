@@ -8,14 +8,14 @@ namespace backend.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class UserController : ControllerBase
+public class UsersController : ControllerBase
 {
-    public UserController()
+    public UsersController()
     {
 
     }
 
-    // GET: /User
+    // GET: /Users
     [HttpGet]
     public async Task<ActionResult<IEnumerable<User>>> GetUsers()
     {
@@ -25,7 +25,7 @@ public class UserController : ControllerBase
         }
     }
 
-    // GET: /User/5
+    // GET: /Users/5
     [HttpGet("{id}")]
     public async Task<ActionResult<User>> GetUser(int id)
     {
@@ -41,7 +41,7 @@ public class UserController : ControllerBase
         }  
     }
 
-    // POST: /User
+    // POST: /Users
     [HttpPost]
     public async Task<ActionResult<User>> CreateUser(User user)
     {
@@ -54,7 +54,7 @@ public class UserController : ControllerBase
         
     }
 
-    // PUT: /User/5
+    // PUT: /Users/5
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateUser(int id, User user)
     {
@@ -86,7 +86,7 @@ public class UserController : ControllerBase
         return NoContent();
     }
 
-    // DELETE: /User/5
+    // DELETE: /Users/5
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteUser(int id)
     {
