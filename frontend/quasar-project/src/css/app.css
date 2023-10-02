@@ -13,6 +13,10 @@ form {
   padding: 2rem;
 }
 
+li {
+  margin: 0.5rem;
+}
+
 form,
 h4,
 ul {
@@ -22,7 +26,8 @@ ul {
   margin: 1rem auto;
 }
 
-form label, button {
+form label,
+button {
   display: inline-block;
   width: 100%; /* Adjust the width as needed */
   text-align: center;
