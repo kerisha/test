@@ -44,10 +44,8 @@ export default {
   watch: {
     $route(to, from) {
       if (from.path !== "/" && to.path === "/") {
-        console.log(from.path);
-        // Trigger a refresh
-        console.log("we here");
-        this.$router.go();
+        // Refresh data
+        this.getData();
       }
     },
   },
@@ -62,24 +60,31 @@ export default {
           // Clear the form
           this.newUser.name = "";
           this.newUser.email = "";
-          window.location.reload();
+          this.getData();
         })
         .catch((error) => {
           // Handle error, e.g., show an error message
           console.error("Error adding user: " + error);
         });
     },
+    getData() {
+      // Make an HTTP GET request to fetch users
+      axios
+        .get(API_BASE_URL + "users")
+        .then((response) => {
+          return response.data;
+        })
+        .then((data) => {
+          this.users = data;
+        })
+        .catch((error) => {
+          console.error("Error fetching users: " + error);
+        });
+    },
   },
   mounted() {
     // Make an HTTP GET request to fetch users
-    axios
-      .get(API_BASE_URL + "users")
-      .then((response) => {
-        this.users = response.data;
-      })
-      .catch((error) => {
-        console.error("Error fetching users: " + error);
-      });
+    this.getData();
   },
 };
 </script>
