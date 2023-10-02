@@ -1,5 +1,13 @@
 var builder = WebApplication.CreateBuilder(args);
 
+var configuration =  new ConfigurationBuilder()
+     .AddJsonFile($"appsettings.json");
+
+var config = configuration.Build();
+
+var apiUrl = config.GetSection("apiUrl").Value;
+Console.WriteLine(apiUrl);
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -29,4 +37,7 @@ app.MapControllers();
 
 app.UseCors("corsapp");
 
-app.Run();
+// Use app setting
+app.Run(apiUrl);
+// Use launch profile setting
+// app.Run();
