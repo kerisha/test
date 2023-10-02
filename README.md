@@ -52,3 +52,5 @@ Command
 ` dotnet run`
 
 > The front end and the back end should be running
+
+> For dev test purposes, a SQLite database was used
