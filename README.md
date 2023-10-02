@@ -53,4 +53,8 @@ Command
 
 > The front end and the back end should be running
 
+# Data `cd data`
+
+See project for database context, models and migrations
+
 > For dev test purposes, a SQLite database was used
