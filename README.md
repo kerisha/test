@@ -1,6 +1,6 @@
 # Front End - `cd frontend`
 
-# Quasar App (quasar-project)
+# Quasar App (quasar-project) With Vue Instance
 
 A Quasar Project
 
